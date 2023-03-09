@@ -1,0 +1,78 @@
+HW 1
+====
+
+Problem 1:
+----------
+
+First few outputs:
+
+  (SEQ 0) => 1
+  (SEQ 1) => 1
+  (SEQ 2) => 1
+  (SEQ 3) => 3
+  (SEQ 4) => 5
+  (SEQ 5) => 9
+  (SEQ 6) => 17
+  (SEQ 7) => 31
+  (SEQ 8) => 57
+  (SEQ 9) => 105
+  (SEQ 10) => 193
+  (SEQ 15) => 4063
+  (SEQ 20) => 85525
+  (SEQ 25) => 1800281
+
+Aftewards, I tried SEQ with higher values like 30 and it took quite
+a long time for it to finish running. This is because there are a 
+lot of recursive calls when SEQ 30 is run. While the height of the
+recursive tree may be only 30 (it runs from SEQ 30) at the top to
+SEQ 0-2 at the bottom of the tree leading to an approximate height of
+30, there are 3 branches for every node in the tree which leads to
+many, many function calls. It grows exponentially with the size of
+the input N.
+
+
+Problem 2:
+----------
+
+First few outputs:
+
+  (SUMS 0) => 0
+  (SUMS 1) => 0
+  (SUMS 2) => 0
+  (SUMS 3) => 2
+  (SUMS 4) => 4
+  (SUMS 5) => 8
+  (SUMS 6) => 16
+  (SUMS 7) => 30
+  (SUMS 8) => 56
+  (SUMS 9) => 104
+  (SUMS 10) => 192
+  (SUMS 15) => 4062
+  (SUMS 20) => 85524
+  (SUMS 25) => 1800280
+
+We see that the value of SUMS is actually just the value of SEQ
+but 1 less. This is because if we write out the entire expression,
+the number of SEQ 0's SEQ 1's and SEQ 2's at the very end of the
+expanded expression is 1 more than the number of addition signs.
+This makes perfect sense so our result is expected
+
+Problem 3:
+----------
+
+Test Cases:
+
+  (ANON '42) => 0
+  (ANON 'FOO) => 0
+  (ANON '(((L E) F) T)) => (((0 0) 0) 0)
+  (ANON '(5 FOO 3.1 -0.2)) => (0 0 0 0)
+  (ANON '(1 (FOO 3.1) -0.2)) => (0 (0 0) 0)
+  (ANON '(((1 2) (FOO 3.1)) (BAR -0.2))) => (((0 0) (0 0)) (0 0))
+  (ANON '(R (I (G (H T))))) => (0 (0 (0 (0 0))))
+
+Most difficult part of this problem was realizing that there were
+actually two base cases and how to do the recursion. Initially it
+was not entirely clear that car and cdr was all that had to be used
+to split it up into the first and remaining elements. Once that 
+was realized, however, the base cases were apparent from hand-written
+recursion.

@@ -1,0 +1,22 @@
+p(y | x) = p(y | yh = 1) * p(yh = 1) + p(y | yh = 0) * p(yh = 0)
+= p(y | yh = 1) * k + p(y | yh = 0) * (1 - k)
+
+p(y | x) = yh ^ y * (1 - yh) ^ (1 - y)
+
+
+y * log(yh) + (1 - y) * log(1 - yh)
+
+-y * log(yh) - (1 - y) * log(1 - yh)
+
+
+
+a, b, c, d, e <= training set
+f, g, h <= testing set
+
+4 
+
+3 
+
+2 o
+
+1 increasing training data will allow the model to see a larger variety of data points, likely those in the original test set that caused such a poor accuracy. increasing training data will also increase the data to feature ratio that could be a problem.

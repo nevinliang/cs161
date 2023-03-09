@@ -1,0 +1,103 @@
+NEVIN LIANG
+NOV 13 2021
+
+HOMEWORK 4 TXT FILE
+===================
+
+Solving graph1.txt with 3 colors: UNSATISFIABLE
+-----------------------------------------------
+[nevin@lnxsrv07 ~/Desktop/rsat_SAT-Race08_final_bin]$ ./rsat.sh ../g1c3
+c Parsing...
+c ==============================================================================
+c |           |     ORIGINAL     |              LEARNT              |          |
+c | Conflicts | Clauses Literals |   Limit Clauses Literals  Lit/Cl | Progress |
+c ==============================================================================
+c |         0 |      64      135 |      19       0        0     nan |  0.000 % |
+c |         0 |      42      138 |      --       0       --      -- |     --   | -22/3
+c ==============================================================================
+c Result  :   #vars: 10   #clauses: 42   #literals: 138
+c CPU time:   0.000796 s
+c ==============================================================================
+c Rsat version 3.01
+c Random seed = 91648253
+c Base unit clause learned: 0
+c Probing 10/10 variables
+c level 1
+c Finished probing in 0.0000 s, 0 implications found using 1 levels
+c Total implications found so far: 0/10
+c CNF stats: (10 vars, 42 clauses)
+c Decisions: 5
+c Conflicts: 6
+c Avg lpc: 2.67
+c Max decision level: 3
+c Final decision lit size:10 (100.00 %)
+c Final stack/save sizes: 10(100.00 %)/10(100.00 %)
+c Final cdc size: 100 (1000.00 %)
+c Running time: 0.00194 seconds
+s UNSATISFIABLE
+
+
+
+Solving graph1.txt with 4 colors: SATISFIABLE
+-----------------------------------------------
+[nevin@lnxsrv07 ~/Desktop/rsat_SAT-Race08_final_bin]$ ./rsat.sh ../g1c4
+c Parsing...
+c ==============================================================================
+c |           |     ORIGINAL     |              LEARNT              |          |
+c | Conflicts | Clauses Literals |   Limit Clauses Literals  Lit/Cl | Progress |
+c ==============================================================================
+c |         0 |      97      208 |      29       0        0     nan |  0.000 % |
+c |         0 |      64      236 |      --       0       --      -- |     --   | -33/28
+c ==============================================================================
+c Result  :   #vars: 17   #clauses: 64   #literals: 236
+c CPU time:   0.002748 s
+c ==============================================================================
+c Rsat version 3.01
+c Random seed = 91648253
+c Base unit clause learned: 0
+c Probing 17/17 variables
+c level 1
+c Finished probing in 0.0000 s, 0 implications found using 1 levels
+c Total implications found so far: 0/17
+c CNF stats: (17 vars, 64 clauses)
+c Decisions: 11
+c Conflicts: 0
+c Avg lpc: nan
+c Max decision level: 11
+c Final decision lit size:17 (100.00 %)
+c Final stack/save sizes: 10(58.82 %)/10(58.82 %)
+c Final cdc size: 100 (588.24 %)
+c Running time: 0.00192 seconds
+s SATISFIABLE
+v -1 -2 -3 4 -5 -6 7 -8 -9 10 -11 -12 -13 -14 15 -16 17 -18 -19 -20 -21 22 -23 -24 25 -26 -27 -28 0
+
+
+
+Implications of the above two results
+-------------------------------------
+The first result is UNSATISFIABLE so the graph cannot be colored with just 3 colors.
+The second result is SATISFIABLE so the graph can be colored with just 4 colors. Thus,
+4 colors is the minimum number of colors needed to be able to color the graph.
+
+An example of the coloring is:
+Let the nodes be labeled 1-7 and the colors be labeled A-D.
+1: A
+2: B
+3: C
+4: A
+5: D
+6: B
+7: D
+
+
+
+Minimum number of colors required to properly color graph2.txt
+--------------------------------------------------------------
+3: UNSATISFIABLE
+4: UNSATISFIABLE
+5: UNSATISFIABLE
+6: UNSATISFIABLE
+7: UNSATISFIABLE
+8: SATISFIABLE
+
+The minimum number of colors required to properly color graph2.txt is 8.
